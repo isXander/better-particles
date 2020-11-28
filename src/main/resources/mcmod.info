@@ -1,0 +1,16 @@
+[
+{
+  "modid": "betterparticls",
+  "name": "isXander's BetterParticles Mod",
+  "description": "Improves particles in Minecraft to make it look smoother.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["isXander"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
