@@ -5,6 +5,7 @@
   "refmap": "mixins.betterparticles.refmap.json",
   "verbose": true,
   "mixins": [
-    "MixinEntityFX"
+    "MixinEntityFX",
+    "MixinEntityPlayerSP"
   ]
 }

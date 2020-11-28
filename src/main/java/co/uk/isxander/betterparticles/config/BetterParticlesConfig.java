@@ -20,17 +20,56 @@ public class BetterParticlesConfig extends Vigilant {
     @Property(
             type = PropertyType.SLIDER,
             name = "Particle opacity speed",
-            description = "Changes how fast the opacity of particles change.\n§8If you set it to 0, it will be disabled.",
-            category = "General",
+            description = "Changes how fast the opacity of particles change.\n§7If you set it to 0, it will be disabled.",
+            category = "Looks",
             subcategory = "General",
             max = 5
     )
     public int opacitySpeed = 3;
 
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Always Sharpness",
+            description = "Always spawns sharpness particles, even if you don't have sharpness.",
+            category = "Multiplier",
+            subcategory = "Sharpness"
+    )
+    public boolean alwaysSharp = false;
+
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Sharpness Multiplier",
+            description = "Determines how many sharpness particles spawn.",
+            category = "Multiplier",
+            subcategory = "Sharpness",
+            min = 1,
+            max = 20
+    )
+    public int sharpMultiplier = 2;
+
+    @Property(
+            type = PropertyType.SWITCH,
+            name = "Always Critical",
+            description = "Always spawns critical particles, even if you don't have a crit hit.",
+            category = "Multiplier",
+            subcategory = "Criticals"
+    )
+    public boolean alwaysCrit = false;
+
+    @Property(
+            type = PropertyType.SLIDER,
+            name = "Critical Multiplier",
+            description = "Determines how many critical particles spawn.",
+            category = "Multiplier",
+            subcategory = "Criticals",
+            min = 1,
+            max = 20
+    )
+    public int critMultiplier = 2;
+
     public BetterParticlesConfig() {
         super(new File("./config/betterparticles.toml"));
         initialize();
-        preload();
     }
 
 }
