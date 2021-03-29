@@ -36,8 +36,7 @@ public abstract class MixinEntityFX {
     private void injectOpacity(WorldRenderer worldRendererIn, Entity entityIn, float partialTicks, float rotationX, float rotationZ, float rotationYZ, float rotationXY, float rotationXZ, CallbackInfo ci) {
         BetterParticlesConfig cfg = BetterParticles.getInstance().getConfig();
         if (!cfg.enabled) return;
-        //                MathUtils.getPercent(float val,   float minimum,    float maximum);
-        float alpha = 1 - MathUtils.getPercent(particleAge, cfg.minParticleAlpha, particleMaxAge);
+        float alpha = 1 - MathUtils.getPercent(particleAge, particleMaxAge * (cfg.minParticleAlpha / 100f), particleMaxAge);
 
         if (getAlpha() != alpha)
             setAlphaF(alpha);
