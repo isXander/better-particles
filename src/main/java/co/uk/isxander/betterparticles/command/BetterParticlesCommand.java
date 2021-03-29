@@ -1,3 +1,14 @@
+/*
+ * Copyright (C) isXander [2020 - 2021]
+ * This program comes with ABSOLUTELY NO WARRANTY
+ * This is free software, and you are welcome to redistribute it
+ * under the certain conditions that can be found here
+ * https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * If you would like to enquire about using this code,
+ * contact isXander @ "business.isxander@gmail.com"
+ */
+
 package co.uk.isxander.betterparticles.command;
 
 import club.sk1er.mods.core.ModCore;

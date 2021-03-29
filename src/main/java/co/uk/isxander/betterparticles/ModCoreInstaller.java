@@ -1,3 +1,14 @@
+/*
+ * Copyright (C) isXander [2020 - 2021]
+ * This program comes with ABSOLUTELY NO WARRANTY
+ * This is free software, and you are welcome to redistribute it
+ * under the certain conditions that can be found here
+ * https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * If you would like to enquire about using this code,
+ * contact isXander @ "business.isxander@gmail.com"
+ */
+
 package co.uk.isxander.betterparticles;
 
 import com.google.gson.JsonArray;
@@ -26,6 +37,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.net.URLClassLoader;
 import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.LinkedHashSet;
@@ -52,15 +64,15 @@ public class ModCoreInstaller {
 
     private static boolean isInitalized() {
         try {
-            LinkedHashSet<String> objects = new LinkedHashSet<>();
-            objects.add(className);
-            Launch.classLoader.clearNegativeEntries(objects);
-            Field invalidClasses = LaunchClassLoader.class.getDeclaredField("invalidClasses");
-            invalidClasses.setAccessible(true);
-            Object obj = invalidClasses.get(ModCoreInstaller.class.getClassLoader());
-            ((Set<String>) obj).remove(className);
+//            LinkedHashSet<String> objects = new LinkedHashSet<>();
+//            objects.add(className);
+//            Launch.classLoader.clearNegativeEntries(objects);
+//            Field invalidClasses = LaunchClassLoader.class.getDeclaredField("invalidClasses");
+//            invalidClasses.setAccessible(true);
+//            Object obj = invalidClasses.get(ModCoreInstaller.class.getClassLoader());
+//            ((Set<String>) obj).remove(className);
             return Class.forName("club.sk1er.mods.core.ModCore") != null;
-        } catch (ClassNotFoundException | NoSuchFieldException | IllegalAccessException ignored) {
+        } catch (ClassNotFoundException ignored) {
             ignored.printStackTrace();
         }
         return false;
@@ -155,7 +167,10 @@ public class ModCoreInstaller {
             Method method = classLoader.getClass().getDeclaredMethod("addURL", URL.class);
             method.setAccessible(true);
             method.invoke(classLoader, url);
+
+            URLClassLoader child = new URLClassLoader(new URL[]{ file.toURI().toURL() }, ModCoreInstaller.class.getClassLoader());
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException("Unexpected exception", e);
         }
     }

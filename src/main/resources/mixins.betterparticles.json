@@ -1,11 +1,10 @@
 {
   "required": true,
   "compatibilityLevel": "JAVA_8",
-  "package": "co.uk.isxander.betterparticles.mixins.impl",
+  "package": "co.uk.isxander.betterparticles.mixin.impl",
   "refmap": "mixins.betterparticles.refmap.json",
   "verbose": true,
   "mixins": [
-    "MixinEntityFX",
-    "MixinEntityPlayerSP"
+    "MixinEntityFX"
   ]
 }

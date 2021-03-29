@@ -1,3 +1,14 @@
+/*
+ * Copyright (C) isXander [2020 - 2021]
+ * This program comes with ABSOLUTELY NO WARRANTY
+ * This is free software, and you are welcome to redistribute it
+ * under the certain conditions that can be found here
+ * https://www.gnu.org/licenses/lgpl-3.0.en.html
+ *
+ * If you would like to enquire about using this code,
+ * contact isXander @ "business.isxander@gmail.com"
+ */
+
 package co.uk.isxander.betterparticles.config;
 
 import club.sk1er.vigilance.Vigilant;
@@ -19,57 +30,19 @@ public class BetterParticlesConfig extends Vigilant {
 
     @Property(
             type = PropertyType.SLIDER,
-            name = "Particle opacity speed",
-            description = "Changes how fast the opacity of particles change.\n§7If you set it to 0, it will be disabled.",
-            category = "Looks",
+            name = "Minimum Particle Alpha",
+            description = "What is the minimum transparency a particle can have.",
+            category = "General",
             subcategory = "General",
-            max = 5
+            max = 100,
+            min = 0
     )
-    public int opacitySpeed = 3;
-
-    @Property(
-            type = PropertyType.SWITCH,
-            name = "Always Sharpness",
-            description = "Always spawns sharpness particles, even if you don't have sharpness.",
-            category = "Multiplier",
-            subcategory = "Sharpness"
-    )
-    public boolean alwaysSharp = false;
-
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Sharpness Multiplier",
-            description = "Determines how many sharpness particles spawn.",
-            category = "Multiplier",
-            subcategory = "Sharpness",
-            min = 1,
-            max = 20
-    )
-    public int sharpMultiplier = 2;
-
-    @Property(
-            type = PropertyType.SWITCH,
-            name = "Always Critical",
-            description = "Always spawns critical particles, even if you don't have a crit hit.",
-            category = "Multiplier",
-            subcategory = "Criticals"
-    )
-    public boolean alwaysCrit = false;
-
-    @Property(
-            type = PropertyType.SLIDER,
-            name = "Critical Multiplier",
-            description = "Determines how many critical particles spawn.",
-            category = "Multiplier",
-            subcategory = "Criticals",
-            min = 1,
-            max = 20
-    )
-    public int critMultiplier = 2;
+    public int minParticleAlpha = 0;
 
     public BetterParticlesConfig() {
         super(new File("./config/betterparticles.toml"));
         initialize();
+        preload();
     }
 
 }
